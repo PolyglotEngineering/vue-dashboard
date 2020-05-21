@@ -10,7 +10,8 @@
       <input type="email" placeholder="Email" />
       <input type="password" placeholder="Password" />
       <button>Sign In</button>
-      <router-link to="/recover">Forgotten your password</router-link>
+      <router-link to="/recover">Forgot your password?</router-link>
+      <button @click="toggleDarkMode">Toggle</button>
     </div>
   </div>
 </template>
@@ -20,14 +21,26 @@ export default {
   name: 'SignIn',
   data() {
     return {
-      logo: '@/assets/DCHQ.svg'
+      isDarkMode: true
+    }
+  },
+  methods: {
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode
+      alert(this.isDarkMode)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/global-styles/colors.scss';
+.light-background {
+  background-color: $light-gray;
+}
+
+.dark-background {
+  background-color: red;
+}
 .container {
   display: flex;
   justify-content: center;
